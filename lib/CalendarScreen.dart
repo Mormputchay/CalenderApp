@@ -6,6 +6,7 @@ import 'package:calendar/Url_screen.dart';
 import 'package:calendar/Youtube.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:get/get.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:table_calendar/table_calendar.dart';
 
@@ -16,6 +17,7 @@ class CalenderScreen extends StatefulWidget {
 }
 
 class _CalenderScreenState extends State<CalenderScreen> {
+  bool clickChangeTheme = false;
   DateTime today = DateTime.now();
   @override
   void initState() {
@@ -32,14 +34,31 @@ class _CalenderScreenState extends State<CalenderScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue,
         centerTitle: true,
         title: const Text(
           'Calender',
           style: TextStyle(color: Colors.white),
         ),
+        actions: [
+          IconButton(
+              onPressed: () {
+                setState(() {
+                  clickChangeTheme = !clickChangeTheme;
+                });
+                Get.changeTheme(
+                    Get.isDarkMode ? ThemeData.light() : ThemeData.dark());
+              },
+              icon: clickChangeTheme
+                  ? const Icon(
+                      Icons.sunny,
+                      color: Colors.white,
+                    )
+                  : const Icon(
+                      Icons.nightlight,
+                      color: Colors.white,
+                    ))
+        ],
       ),
-      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -142,9 +161,6 @@ class _CalenderScreenState extends State<CalenderScreen> {
                   Press: () {
                     Navigator.of(context).push(PageTransition(
                       type: PageTransitionType.rightToLeftWithFade,
-                      // childCurrent: widget,
-                      // duration: const Duration(microseconds: 600),
-                      // reverseDuration: const Duration(microseconds: 600),
                       child: const GoogleMapView(),
                     ));
                   }),

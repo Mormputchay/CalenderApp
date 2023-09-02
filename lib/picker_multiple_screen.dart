@@ -37,7 +37,7 @@ class _PickerMultipleScreenState extends State<PickerMultipleScreen> {
                     itemCount: lstImagePreview.length,
                   ),
                 )
-              : Container(
+              : SizedBox(
                   width: MediaQuery.of(context).size.height,
                   height: MediaQuery.of(context).size.width,
                   child: const Center(child: Text("No Image Selected")),
@@ -47,7 +47,7 @@ class _PickerMultipleScreenState extends State<PickerMultipleScreen> {
       floatingActionButton: FloatingActionButton(
         onPressed: () async {
           List<XFile>? listImage = await picker.pickMultiImage();
-          if (listImage.length > 0) {
+          if (listImage.isNotEmpty) {
             for (var img in listImage) {
               lstImagePreview.add(File(img.path));
             }

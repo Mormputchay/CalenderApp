@@ -1,6 +1,8 @@
+import 'package:calendar/Internationalization_Screen.dart';
 import 'package:calendar/Rounder_Button.dart';
 import 'package:calendar/picker_multiple_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class YoutubeScreen extends StatefulWidget {
@@ -49,7 +51,6 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
       ),
       builder: (context, player) => Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.orangeAccent,
               centerTitle: true,
               title: const Text(
                 'Youtube Player',
@@ -68,8 +69,9 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 10),
                         child: RounderButton(
-                          title:
-                              (clickLike == true) ? 'Play Video' : 'Stop Video',
+                          title: (clickLike == true)
+                              ? 'play_video'.tr
+                              : 'stop_video'.tr,
                           Press: () {
                             setState(() {
                               clickLike = !clickLike;
@@ -85,7 +87,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 10),
                         child: RounderButton(
-                          title: 'More',
+                          title: 'more'.tr,
                           Press: () {
                             controller.mute();
                             controller.unMute();
@@ -96,7 +98,7 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                         padding: const EdgeInsets.symmetric(
                             horizontal: 15, vertical: 10),
                         child: RounderButton(
-                          title: 'Next Video',
+                          title: 'next_video'.tr,
                           Press: () {
                             const url =
                                 "https://www.youtube.com/watch?v=sTiwIHOR3ow&list=RDsTiwIHOR3ow&start_radio=1";
@@ -114,6 +116,19 @@ class _YoutubeScreenState extends State<YoutubeScreen> {
                                 MaterialPageRoute(
                                     builder: (context) =>
                                         const PickerMultipleScreen()));
+                          },
+                        )),
+                    Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: 15, vertical: 10),
+                        child: RounderButton(
+                          title: 'app_title'.tr,
+                          Press: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const InternationalizationScreen()));
                           },
                         )),
                   ],
