@@ -157,7 +157,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: RounderButton(
-                  title: "Google Map",
+                  title: "google_map".tr,
                   Press: () {
                     Navigator.of(context).push(PageTransition(
                       type: PageTransitionType.rightToLeftWithFade,
