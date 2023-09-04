@@ -49,11 +49,19 @@ dependencies:
   lottie: ^2.6.0
   flutter_native_splash: ^2.3.2
   page_transition: ^2.0.9
+  file_picker: ^5.5.0
+  open_file: ^3.3.2
+  path_provider: ^2.1.1
 flutter_native_splash:
   color: "#27AE60"
   image: assets/icons/logo.png
   web: true
   android: true
+  android_12:
+    image: assets/icons/logo.png
+    icon_background_color: "#27AE60"
+    image_dark: assets/icons/logo.png
+    icon_background_color_dark: "#27AE60"
   ios: true
 
   android_gravity: center
