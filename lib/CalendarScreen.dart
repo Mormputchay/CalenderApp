@@ -1,9 +1,10 @@
-import 'package:calendar/Google_map_view.dart';
-import 'package:calendar/ImagePickerScreen.dart';
-import 'package:calendar/Photo_View.dart';
 import 'package:calendar/Rounder_Button.dart';
-import 'package:calendar/Url_screen.dart';
-import 'package:calendar/Youtube.dart';
+import 'package:calendar/view/Image_Picker_and_Video_Picker/ImagePickerScreen.dart';
+import 'package:calendar/view/Image_Picker_and_Video_Picker/Photo_View.dart';
+import 'package:calendar/view/analog_clock_picker_screen.dart';
+import 'package:calendar/view/link_url/Url_screen.dart';
+import 'package:calendar/view/map/Google_map_view.dart';
+import 'package:calendar/view/youtube/Youtube.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:get/get.dart';
@@ -33,6 +34,7 @@ class _CalenderScreenState extends State<CalenderScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         centerTitle: true,
         title: const Text(
@@ -162,6 +164,17 @@ class _CalenderScreenState extends State<CalenderScreen> {
                     Navigator.of(context).push(PageTransition(
                       type: PageTransitionType.rightToLeftWithFade,
                       child: const GoogleMapView(),
+                    ));
+                  }),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+              child: RounderButton(
+                  title: "Analog Clock PickerScreen",
+                  Press: () {
+                    Navigator.of(context).push(PageTransition(
+                      type: PageTransitionType.rightToLeftWithFade,
+                      child: const Analog_Clock_PickerScreen(),
                     ));
                   }),
             ),

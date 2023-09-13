@@ -1,7 +1,7 @@
-import 'package:calendar/File_Picker.dart';
-import 'package:calendar/Internationalization_Screen.dart';
 import 'package:calendar/Rounder_Button.dart';
-import 'package:calendar/picker_multiple_screen.dart';
+import 'package:calendar/view/Image_Picker_and_Video_Picker/File_Picker.dart';
+import 'package:calendar/view/Image_Picker_and_Video_Picker/picker_multiple_screen.dart';
+import 'package:calendar/view/language/Internationalization_Screen.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
