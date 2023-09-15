@@ -1,7 +1,11 @@
 import 'package:analog_clock_picker/analog_clock_picker.dart';
+import 'package:calendar/PlayVideoFromNetwork.dart';
+import 'package:calendar/selectCard.dart';
 import 'package:flutter/material.dart';
 // ignore: depend_on_referenced_packages
 import 'package:intl/intl.dart';
+
+import '../Rounder_Button.dart';
 
 // ignore: camel_case_types
 class Analog_Clock_PickerScreen extends StatefulWidget {
@@ -81,6 +85,35 @@ class _Analog_Clock_PickerScreenState extends State<Analog_Clock_PickerScreen> {
                   ),
                 );
               },
+            ),
+            Column(
+              children: [
+                Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    child: RounderButton(
+                      title: "Select card",
+                      Press: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => SelectedCardScreen()));
+                      },
+                    )),
+                Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 15, vertical: 10),
+                    child: RounderButton(
+                      title: "pop Video",
+                      Press: () {
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const PlayVideoFromNetwork()));
+                      },
+                    )),
+              ],
             ),
           ],
         ),

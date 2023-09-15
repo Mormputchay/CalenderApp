@@ -55,6 +55,8 @@ dependencies:
   flutter_screen_lock: ^9.0.1
   video_player: ^2.7.1
   analog_clock_picker: ^0.0.6
+  select_card: ^0.0.9
+  pod_player: ^0.2.1
 flutter_native_splash:
   color: "#27AE60"
   image: assets/icons/logo.png
